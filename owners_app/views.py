@@ -96,6 +96,7 @@ class DogView(View):
 
         if data["owner"] in owner_name_list:
             owner = Owner.objects.get(name=data["owner"])
+
             Dog.objects.create(name=data["name"], age=data["age"], owner=owner)
             return JsonResponse({"message":"dog enrolled"}, status=201)
 
